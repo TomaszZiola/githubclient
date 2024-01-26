@@ -19,7 +19,7 @@ The project is structured as follows:
 
 - **`src/main/kotlin/com/ziola/githubclient/controller`**: Contains the main controller class (`GhController`) responsible for handling incoming HTTP requests.
 
-- **`src/main/kotlin/com/ziola/githubclient/service/impl`**: Houses the service class (`GhService`) responsible for interacting with the GitHub API and processing the retrieved data.
+- **`src/main/kotlin/com/ziola/githubclient/service`**: Houses the service class (`GhService`) responsible for interacting with the GitHub API and processing the retrieved data.
 
 - **`src/main/kotlin/com/ziola/githubclient/client`**: Holds the GitHub REST client interface (`GhClient`), which defines the methods for interacting with the GitHub API.
 
