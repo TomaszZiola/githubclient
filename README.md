@@ -1,4 +1,4 @@
-# GitHub Repository Details README
+# GitHubClient Repository Details
 
 This project is a GitHub repository details application that retrieves information about repositories and their branches for a given GitHub user. The application is implemented in Kotlin using the Quarkus framework, incorporating MicroProfile REST Client and SmallRye Mutiny for reactive programming.
 
