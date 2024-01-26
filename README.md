@@ -51,7 +51,7 @@ To run the GitHub Repository Details application locally, follow these steps:
 
 ## Usage
 
-The main endpoint of the application is accessible at /username/{username}, where {username} is the GitHub username for which you want to retrieve repository details.
+The main endpoint of the application is accessible at /{username}, where {username} is the GitHub username for which you want to retrieve repository details.
 
 Example:
 
