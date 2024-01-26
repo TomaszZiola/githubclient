@@ -1,6 +1,6 @@
-package com.ziola.githubclient.service
+package com.ziola.githubclient.services
 
-import com.ziola.githubclient.client.GhClient
+import com.ziola.githubclient.clients.GhClient
 import com.ziola.githubclient.dto.ApiResponse
 import com.ziola.githubclient.dto.GhRepository
 import com.ziola.githubclient.dto.RepoBranchCommit

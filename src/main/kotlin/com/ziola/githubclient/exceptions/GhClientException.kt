@@ -1,3 +1,3 @@
-package com.ziola.githubclient.exception
+package com.ziola.githubclient.exceptions
 
 class GhClientException(message: String) : RuntimeException(message)

@@ -1,4 +1,4 @@
-package com.ziola.githubclient.client
+package com.ziola.githubclient.clients
 
 import com.ziola.githubclient.dto.GhRepository
 import com.ziola.githubclient.dto.RepoBranch

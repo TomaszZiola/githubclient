@@ -23,7 +23,7 @@ internal class GhWireMockExtension : WireMockExtension() {
             get(urlPathMatching("/repos/TomaszZiola/githubrepochecker/branches"))
                 .willReturn(okJson(githubrepochecker())),
         )
-        appProperties["quarkus.rest-client.\"com.ziola.githubclient.client.GhClient\".url"] = server.baseUrl()
+        appProperties["quarkus.rest-client.\"com.ziola.githubclient.clients.GhClient\".url"] = server.baseUrl()
         return appProperties
     }
 
