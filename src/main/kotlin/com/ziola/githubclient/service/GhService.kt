@@ -1,4 +1,4 @@
-package com.ziola.githubclient.service.impl
+package com.ziola.githubclient.service
 
 import com.ziola.githubclient.client.GhClient
 import com.ziola.githubclient.dto.ApiResponses

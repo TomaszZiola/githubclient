@@ -43,7 +43,7 @@ To run the GitHub Repository Details application locally, follow these steps:
 
     ```bash
    ./gradlew build
-    
+
 4. Run the application:
 
     ```bash
@@ -56,7 +56,7 @@ The main endpoint of the application is accessible at /username/{username}, wher
 Example:
 
     curl http://localhost:8080/username/johndoe
-    
+
 This will return a JSON response containing information about the repositories and their branches for the specified GitHub user.
 
 

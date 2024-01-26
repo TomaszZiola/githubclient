@@ -1,7 +1,7 @@
 package com.ziola.githubclient.controllers
 
 import com.ziola.githubclient.dto.ApiResponses
-import com.ziola.githubclient.service.impl.GhService
+import com.ziola.githubclient.service.GhService
 import io.smallrye.mutiny.Uni
 import jakarta.ws.rs.GET
 import jakarta.ws.rs.Path
