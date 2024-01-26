@@ -32,6 +32,7 @@ dependencies {
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("com.github.tomakehurst:wiremock-jre8-standalone:+")
     testImplementation("org.assertj:assertj-core:+")
+    testImplementation("io.quarkiverse.mockk:quarkus-junit5-mockk:2+")
 }
 
 group = "org.ziola"
