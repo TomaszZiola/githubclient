@@ -55,7 +55,7 @@ The main endpoint of the application is accessible at /username/{username}, wher
 
 Example:
 
-    curl http://localhost:8080/username/johndoe
+    curl http://localhost:8080/johndoe
 
 This will return a JSON response containing information about the repositories and their branches for the specified GitHub user.
 
