@@ -1,48 +1,62 @@
-# githubrepochecker
+# GitHub Repository Details README
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework and Kotlin.
+This project is a GitHub repository details application that retrieves information about repositories and their branches for a given GitHub user. The application is implemented in Kotlin using the Quarkus framework, incorporating MicroProfile REST Client and SmallRye Mutiny for reactive programming.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## Table of Contents
 
-## Running the application in dev mode
+1. [Introduction](#introduction)
+2. [Project Structure](#project-structure)
+3. [Getting Started](#getting-started)
+4. [Usage](#usage)
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./gradlew quarkusDev
-```
+## Introduction
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+The GitHub Repository Details application is designed to fetch repository information for a specified GitHub user. It utilizes the GitHub API through a REST client and provides a structured response containing details about each repository, including the repository name, owner's login, and a list of branches with their corresponding last commit SHA.
 
-## Packaging and running the application
+## Project Structure
 
-The application can be packaged using:
-```shell script
-./gradlew build
-```
-It produces the `quarkus-run.jar` file in the `build/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `build/quarkus-app/lib/` directory.
+The project is structured as follows:
 
-The application is now runnable using `java -jar build/quarkus-app/quarkus-run.jar`.
+- **`src/main/kotlin/com/ziola/githubclient/controller`**: Contains the main controller class (`GhController`) responsible for handling incoming HTTP requests.
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./gradlew build -Dquarkus.package.type=uber-jar
-```
+- **`src/main/kotlin/com/ziola/githubclient/service/impl`**: Houses the service class (`GhService`) responsible for interacting with the GitHub API and processing the retrieved data.
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar build/*-runner.jar`.
+- **`src/main/kotlin/com/ziola/githubclient/client`**: Holds the GitHub REST client interface (`GhClient`), which defines the methods for interacting with the GitHub API.
 
-## Creating a native executable
+- **`src/main/kotlin/com/ziola/githubclient/dto`**: Contains the data transfer objects (DTOs) used to model the response data, including `ApiResponses`, `RepoBranchCommit`, and `GhRepository`.
 
-You can create a native executable using: 
-```shell script
-./gradlew build -Dquarkus.package.type=native
-```
+## Getting Started
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
-```
+To run the GitHub Repository Details application locally, follow these steps:
 
-You can then execute your native executable with: `./build/githubrepochecker-1.0.0-SNAPSHOT-runner`
+1. Clone the repository:
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling.
+   ```bash
+   git clone <repository-url>
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd <project-directory>
+
+3. Build the application:
+
+    ```bash
+   ./gradlew build
+    
+4. Run the application:
+
+    ```bash
+    ./gradlew quarkusDev
+
+## Usage
+
+The main endpoint of the application is accessible at /username/{username}, where {username} is the GitHub username for which you want to retrieve repository details.
+
+Example:
+
+    curl http://localhost:8080/username/johndoe
+    
+This will return a JSON response containing information about the repositories and their branches for the specified GitHub user.
+
+
