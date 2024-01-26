@@ -13,18 +13,18 @@ class GhService(
     @RestClient private val client: GhClient,
 ) {
     fun retrieveRepositoryDetails(username: String): Uni<List<ApiResponse>> {
-        return client.getGgRepositories(username)
+        return client.getRepositories(username)
             .map { ghRepo -> ghRepo.filter { it.fork.not() } }
-            .flatMap { createResponse(username, it) }
+            .flatMap { addBranchesToRepositories(username, it) }
     }
 
-    private fun createResponse(
+    private fun addBranchesToRepositories(
         username: String,
         repositories: List<GhRepository>,
     ): Uni<List<ApiResponse>> {
         val apiResponse =
             repositories.map { repository ->
-                retrieveBranches(username, repository)
+                retrieveBranches(username, repository.name)
                     .map { branches -> ApiResponse(repository.name, repository.owner.login, branches) }
             }
 
@@ -34,9 +34,9 @@ class GhService(
 
     private fun retrieveBranches(
         username: String,
-        repository: GhRepository,
+        repositoryName: String,
     ): Uni<List<RepoBranchCommit>> {
-        return client.getBranches(username, repository.name)
+        return client.getBranches(username, repositoryName)
             .map { branch -> branch.map { RepoBranchCommit(it.name, it.commit.sha) } }
     }
 }

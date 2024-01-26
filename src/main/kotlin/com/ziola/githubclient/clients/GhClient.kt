@@ -12,7 +12,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 interface GhClient {
     @GET
     @Path("users/{username}/repos")
-    fun getGgRepositories(
+    fun getRepositories(
         @PathParam("username") username: String,
     ): Uni<List<GhRepository>>
 

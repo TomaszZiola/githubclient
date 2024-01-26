@@ -35,7 +35,7 @@ abstract class BaseUnitTest {
         ghServiceImpl = GhService(ghClient)
 
         every { ghClient.getBranches("tomaszziola", "githubclient") } returns uni(listOf(repoBranch))
-        every { ghClient.getGgRepositories("tomaszziola") } returns uni(listOf(ghRepository))
+        every { ghClient.getRepositories("tomaszziola") } returns uni(listOf(ghRepository))
         every { ghService.retrieveRepositoryDetails("tomaszziola") } returns uni(listOf(apiResponse))
     }
 }
