@@ -1,0 +1,10 @@
+[
+    {
+        "name": "master",
+        "commit": {
+            "sha": "5cf028c2083f3294bfdbae415950cb1b534826db",
+            "url": "https://api.github.com/repos/TomaszZiola/currency_exchanger_app/commits/5cf028c2083f3294bfdbae415950cb1b534826db"
+        },
+        "protected": false
+    }
+]
