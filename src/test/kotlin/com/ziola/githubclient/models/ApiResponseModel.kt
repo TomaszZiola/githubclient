@@ -2,12 +2,12 @@ package com.ziola.githubclient.models
 
 import com.ziola.githubclient.dto.ApiResponse
 
-object ApiResponsesModel {
+object ApiResponseModel {
     fun basic(): ApiResponse {
         return ApiResponse(
             "githubclient",
             "tomaszziola",
-            listOf(RepoBranchCommitModel.basic()),
+            listOf(BranchModel.basic()),
         )
     }
 }

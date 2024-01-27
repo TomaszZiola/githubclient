@@ -2,8 +2,9 @@ package com.ziola.githubclient.services
 
 import com.ziola.githubclient.clients.GhClient
 import com.ziola.githubclient.dto.ApiResponse
-import com.ziola.githubclient.dto.GhRepository
-import com.ziola.githubclient.dto.RepoBranchCommit
+import com.ziola.githubclient.dto.Branch
+import com.ziola.githubclient.dto.Commit
+import com.ziola.githubclient.dto.Repository
 import io.smallrye.mutiny.Uni
 import jakarta.enterprise.context.ApplicationScoped
 import org.eclipse.microprofile.rest.client.inject.RestClient
@@ -20,7 +21,7 @@ class GhService(
 
     private fun addBranchesToRepositories(
         username: String,
-        repositories: List<GhRepository>,
+        repositories: List<Repository>,
     ): Uni<List<ApiResponse>> {
         val apiResponse =
             repositories.map { repository ->
@@ -28,15 +29,15 @@ class GhService(
                     .map { branches -> ApiResponse(repository.name, repository.owner.login, branches) }
             }
 
-        return Uni.combine().all().unis<RepoBranchCommit>(apiResponse)
+        return Uni.combine().all().unis<Branch>(apiResponse)
             .with { responses -> responses.filterIsInstance<ApiResponse>() }
     }
 
     private fun retrieveBranches(
         username: String,
         repositoryName: String,
-    ): Uni<List<RepoBranchCommit>> {
+    ): Uni<List<Branch>> {
         return client.getBranches(username, repositoryName)
-            .map { branch -> branch.map { RepoBranchCommit(it.name, it.commit.sha) } }
+            .map { branch -> branch.map { Branch(Commit(it.commit.sha), it.name) } }
     }
 }
